@@ -1,27 +1,19 @@
 //
 //  AppIntent.swift
-//  ClassWidget
+//  Schedule
 //
-//  Created by Suman Muppavarapu on 9/15/24.
+//  Created by Jack Vu on 8/29/24.
 //
 
 import WidgetKit
 import AppIntents
 
-@available(iOS 17.0, *)
-struct ConfigurationAppIntent: WidgetConfigurationIntent, Sendable {
-    static var title: LocalizedStringResource { "Configuration" }
-    static var description: IntentDescription { "Configure your class widget." }
+struct ConfigurationAppIntent: WidgetConfigurationIntent {
+    
+    static var title: LocalizedStringResource = "Configuration"
+    static var description = IntentDescription("This is an example widget.")
 
-    @Parameter(title: "Mascot Name", default: "😃")
+    // An example configurable parameter.
+    @Parameter(title: "Favorite Emoji", default: "😃")
     var favoriteEmoji: String
-    
-    // Add this initializer
-    init() {
-        self.favoriteEmoji = "😃"
-    }
-    
-    init(favoriteEmoji: String) {
-        self.favoriteEmoji = favoriteEmoji
-    }
 }
